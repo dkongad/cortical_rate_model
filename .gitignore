@@ -1,0 +1,44 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.installed.cfg
+*.egg
+
+# --- Virtual environments -------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# --- Jupyter --------------------------------------------------------------
+.ipynb_checkpoints/
+
+# --- Testing / coverage ---------------------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- cortical_rate_model outputs ------------------------------------------
+# Default base directory for saved models / activity / figures
+# (see cortical_rate_model/paths.py). Override with CORTICAL_RATE_MODEL_HOME.
+cortical_rate_model_output/
+
+# --- Source projects (reference only; not part of the package) ------------
+2D_network_StructConn-main/
+Influence_maping-main/
+models_cortical_development-main/
+
+# --- OS / editor ----------------------------------------------------------
+.DS_Store
+*.swp
+.idea/
+.vscode/
