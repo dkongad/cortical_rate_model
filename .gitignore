@@ -37,6 +37,14 @@ cortical_rate_model_output/
 Influence_maping-main/
 models_cortical_development-main/
 
+# --- Claude / AI assistant files ------------------------------------------
+.claude/
+.claude*/
+CLAUDE.md
+CLAUDE.local.md
+**/CLAUDE.md
+.mcp.json
+
 # --- OS / editor ----------------------------------------------------------
 .DS_Store
 *.swp

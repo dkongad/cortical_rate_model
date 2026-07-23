@@ -230,12 +230,11 @@ def to_ei_input(exc_input=None, inh_input=None, num_units=None):
     """
     if exc_input is None and inh_input is None:
         raise ValueError("Provide at least one of exc_input / inh_input.")
-    if num_units is None:
-        ref = exc_input if exc_input is not None else inh_input
-        num_units = np.asarray(ref).shape[-1]
-    if exc_input is None:
-        exc_input = np.zeros(num_units)
-    if inh_input is None:
-        inh_input = np.zeros(num_units)
-    return np.concatenate([np.asarray(exc_input, dtype=np.float64),
-                           np.asarray(inh_input, dtype=np.float64)], axis=-1)
+    # Reference the provided population so the absent one matches its (possibly
+    # batched) shape, e.g. (n_patterns, N).
+    provided = np.asarray(exc_input if exc_input is not None else inh_input,
+                          dtype=np.float64)
+    zeros = np.zeros_like(provided)
+    exc = np.asarray(exc_input, dtype=np.float64) if exc_input is not None else zeros
+    inh = np.asarray(inh_input, dtype=np.float64) if inh_input is not None else zeros
+    return np.concatenate([exc, inh], axis=-1)
